@@ -1,4 +1,5 @@
-import {createStore, applyMiddleware} from "redux";
+import {createStore, applyMiddleware, compose} from "redux";
+// compose - to activate Redux dev tools
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
@@ -9,7 +10,10 @@ const middleware = [thunk];
 const store = createStore(
   rootReducer,
   initialState,
-  applyMiddleware(...middleware)
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 // A store holds the whole state tree of our application
 // The only way to change the state inside it is to dispatch an action to it

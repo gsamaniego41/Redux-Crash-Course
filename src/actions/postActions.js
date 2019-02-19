@@ -8,6 +8,8 @@ export const fetchPosts = () => dispatch => {
   // dispatch is like a resolver in a Promise
   // you can pass in w/e you wanna pass in
   // in this case it's the type and payload
+  console.log("fetching");
+
   fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json())
     // .then(data => this.setState({posts: data}));

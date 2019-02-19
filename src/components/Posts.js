@@ -1,20 +1,29 @@
 import React, {Component} from "react";
+import {connect} from "react-redux"; // connects components to redux store
+import {fetchPosts} from "../actions/postActions";
 import "../App.css";
+import postReducer from "../reducers/postReducer";
+
 class Posts extends Component {
-  constructor(props) {
+  /* constructor(props) {
     super(props);
     this.state = {
       posts: []
     };
-  }
-  componentDidMount = () => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(res => res.json())
-      .then(data => this.setState({posts: data}));
+  } 
+  
+  
+  
+  === We don't need state anymore ===
+  - bec posts is coming from the Redux store
+  */
+  componentWillMount = () => {
+    this.props.fetchPosts();
   };
 
   render() {
-    const postItems = this.state.posts.map(post => (
+    // const postItems = this.STATE.posts.map(post => ( changes to:
+    const postItems = this.props.posts.map(post => (
       <div key={post.id} className="post">
         <h3>{post.title}</h3>
         <p>{post.body}</p>
@@ -30,4 +39,18 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+const mapStateToProps = state => ({
+  // 'posts' bec that's what we called it in combineReducers
+  posts: this.posts.items
+  // this.posts.items from postReducer
+  // And now we have this.props.posts
+});
+
+// export default Posts;
+// To connect our component to the Redux store,
+export default connect(
+  // We need to get the new items from the state ==> mapStateToProps
+  // We can get the state from Redux and map it to props of the component
+  mapStateToProps,
+  {fetchPosts}
+)(Posts);

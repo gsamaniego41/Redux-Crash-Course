@@ -10,6 +10,13 @@ const initialState = {
 export default function(state = initialState, action) {
   // evaluates what type we're dealing with
   switch (action.type) {
+    case FETCH_POSTS:
+      console.log("reducer");
+      return {
+        // returns the state w/ the items fetched
+        ...state, // initialState
+        items: action.payload // From postActions.js, next step: connect Posts.js
+      };
     default:
       return state;
   }

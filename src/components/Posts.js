@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux"; // connects components to redux store
 import {fetchPosts} from "../actions/postActions";
 import "../App.css";
@@ -39,9 +40,14 @@ class Posts extends Component {
   }
 }
 
+Posts.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+  posts: PropTypes.array.isRequired
+};
+
 const mapStateToProps = state => ({
   // 'posts' bec that's what we called it in combineReducers
-  posts: this.posts.items
+  posts: state.posts.items
   // this.posts.items from postReducer
   // And now we have this.props.posts
 });

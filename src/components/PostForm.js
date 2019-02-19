@@ -25,7 +25,10 @@ class PostForm extends Component {
     };
 
     this.props.createPost(post);
-
+    this.setState({
+      title: "",
+      body: ""
+    });
     /* === MOVED TO ACTIONS ===
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",

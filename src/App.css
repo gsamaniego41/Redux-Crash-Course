@@ -8,19 +8,46 @@
   margin-bottom: 60px;
 }
 
+.post-form-container {
+  width: 100%;
+  background: rgb(235, 239, 241);
+  padding: 20px 20px 40px;
+}
+
+.post-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 h1 {
   color: #61dafb;
 }
 
+input {
+  width: 70%;
+  padding: 8px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0 20px;
+}
+
+textarea {
+  width: 80%;
+  padding: 10px 12px;
+  font-family: Arial;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 20vmin;
+  height: 12vmin;
   pointer-events: none;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 300px;
+  min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;

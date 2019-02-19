@@ -15,16 +15,14 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
+            <p>Redux Crash Course</p>
             <a
               className="App-link"
-              href="https://reactjs.org"
+              href="https://youtu.be/93p3LxR9xfM"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learn React
+              Tutorial
             </a>
           </header>
           <PostForm />

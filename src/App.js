@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import {Provider} from "react-redux";
+// Provider is the glue for React and Redux
 
 import Posts from "./components/Posts";
 import PostForm from "./components/PostForm";

@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
         ...state, // initialState
         items: action.payload // From postActions.js, next step: connect Posts.js
       };
+    case NEW_POST:
+      return {
+        ...state,
+        item: action.payload // payload - single post
+      };
     default:
       return state;
   }

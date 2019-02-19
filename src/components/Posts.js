@@ -13,13 +13,17 @@ class Posts extends Component {
     };
   } 
   
-  
-  
   === We don't need state anymore ===
   - bec posts is coming from the Redux store
   */
   componentWillMount = () => {
     this.props.fetchPosts();
+  };
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost);
+    }
   };
 
   render() {
@@ -42,14 +46,16 @@ class Posts extends Component {
 
 Posts.propTypes = {
   fetchPosts: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  newPost: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   // 'posts' bec that's what we called it in combineReducers
-  posts: state.posts.items
+  posts: state.posts.items,
   // this.posts.items from postReducer
   // And now we have this.props.posts
+  newPost: state.posts.item
 });
 
 // export default Posts;
